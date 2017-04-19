@@ -1,17 +1,15 @@
-FROM openjdk:8-jre-alpine
+FROM openjdk:7
 
 MAINTAINER crane "crane.liu@qq.com"
  
 ENV TZ "Asia/Shanghai"
  
-RUN echo "https://mirror.tuna.tsinghua.edu.cn/alpine/v3.4/main" > /etc/apk/repositories
- 
 # Install required packages
-RUN apk add --no-cache --update\
+# RUN apk add --no-cache --update\
+RUN apt-get update && apt-get install -y --no-install-recommends \
     unzip \
     bash \
-    python \
-    su-exec
+    python
 
 ARG JSTORM_VERSION=2.2.1
 ARG DISTRO_NAME=jstorm-${JSTORM_VERSION}
@@ -26,7 +24,7 @@ ENV JSTORM_DATA_DIR=/jdata \
 COPY docker-entrypoint.sh /
 COPY file/${DISTRO_NAME}.zip /
 
-RUN set -x \
+RUN set -x && \
     mkdir -p "$JSTORM_DATA_DIR" "$JSTORM_LOG_DIR" && \
     unzip "/${DISTRO_NAME}.zip" -d "${JSTORM_INSTALL_PATH}/" && \
     mv "${JSTORM_INSTALL_PATH}/${DISTRO_NAME}" "$JSTORM_HOME" && \
