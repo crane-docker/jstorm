@@ -27,7 +27,7 @@ Assuming you have topology.jar in the current directory.
 ```shell
 $ docker run --link jstorm-nimbus:nimbus -it --rm -v $(pwd)/topology.jar:/topology.jar cranelana/jstorm:v2.2.1 jstorm jar /topology.jar com.xxx.jstorm.starter.WordCountTopology topology
 ```
-# 5. Optionally, you can start the Storm UI.
+# 5. Optionally, you can start the JStorm UI.
 ```shell
 $ docker pull cranelana/jstorm-ui:v2.2.1
 ```
