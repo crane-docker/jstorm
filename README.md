@@ -29,5 +29,8 @@ $ docker run --link jstorm-nimbus:nimbus -it --rm -v $(pwd)/topology.jar:/topolo
 ```
 # 5. Optionally, you can start the Storm UI.
 ```shell
+$ docker pull cranelana/jstorm-ui:v2.2.1
+```
+```shell
 $ docker run -d -p 28080:8080 --restart always --name jstorm-ui --link jstorm-nimbus:nimbus --link storm-zk:zookeeper cranelana/jstorm-ui:v2.2.1
 ```
