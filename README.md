@@ -1,8 +1,8 @@
 ## JStorm
 version 2.2.1
 
-## Setting up a minimal Storm cluster
-# 1. Apache Zookeeper is a must for running a Storm cluster. Start it first. Since the Zookeeper "fails fast" it's better to always restart it.
+## Setting up a minimal JStorm cluster
+# 1. Apache Zookeeper is a must for running a JStorm cluster. Start it first. Since the Zookeeper "fails fast" it's better to always restart it.
 ```shell
 $ docker pull zookeeper
 ```
