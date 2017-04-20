@@ -25,7 +25,7 @@ $ docker run -d --restart always --name jstorm-supervisor --link storm-zk:zookee
 # 4. Now you can submit a topology to our cluster.
 Assuming you have topology.jar in the current directory.
 ```shell
-$ docker run --link jstorm-nimbus:nimbus -it --rm -v $(pwd)/topology.jar:/topology.jar cranelana/jstorm-2.2.1 jstorm jar /topology.jar com.xxx.jstorm.starter.WordCountTopology topology
+$ docker run --link jstorm-nimbus:nimbus --link storm-zk:zookeeper -it --rm -v $(pwd)/topology.jar:/topology.jar cranelana/jstorm-2.2.1 jstorm jar /topology.jar com.xxx.jstorm.starter.WordCountTopology topology
 ```
 # 5. Optionally, you can start the JStorm UI.
 ```shell
